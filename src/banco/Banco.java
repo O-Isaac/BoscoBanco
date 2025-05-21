@@ -12,7 +12,8 @@ import java.io.Serializable;
  * @author Isaac
  */
 public class Banco implements Serializable {
-    private static final long serialVersionUID = 1L; 
+    private static final String ERROR_ENTRADA_SALIDA = "Se ha producido un error al leer el archivo:";
+	private static final long serialVersionUID = 1L; 
     private String nombre;
     private final Cuenta[] cuentas;
     private int numeroCuentas;
@@ -31,7 +32,7 @@ public class Banco implements Serializable {
             //System.out.println("Curso serializado correctamente.");
         }
          catch (IOException e) {
-            throw new IOException("Se ha producido un error al leer el archivo:" + nombreArchivo);
+            throw new IOException(ERROR_ENTRADA_SALIDA + nombreArchivo);
         }
 
     }
@@ -43,7 +44,7 @@ public class Banco implements Serializable {
             banco = (Banco) in.readObject();
             //System.out.println("Curso deserializado correctamente.");
         } catch (IOException e) {
-            throw new IOException("Se ha producido un error al leer el archivo:" + nombreArchivo);
+            throw new IOException(ERROR_ENTRADA_SALIDA + nombreArchivo);
         } catch (ClassNotFoundException e) {
             throw new ClassNotFoundException("Se ha producido un error al abir el archivo:" + nombreArchivo);
 
