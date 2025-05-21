@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import banco.*;
+import util.Utilidades;
 
 public class EjercicioBanco {
     static Scanner teclado = new Scanner(System.in);
@@ -75,7 +76,7 @@ public class EjercicioBanco {
             boolean datoCorrecto;
             switch (opcion) {
                 case 0:
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -110,7 +111,7 @@ public class EjercicioBanco {
                     break;
                 case 2: // alta de nueva cuenta
 
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -149,7 +150,7 @@ public class EjercicioBanco {
                     }
                     break;
                 case 3: // ingreso en cuenta
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -188,7 +189,7 @@ public class EjercicioBanco {
                     }
                     break;
                 case 4:  // reintegro de cuenta
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -233,7 +234,7 @@ public class EjercicioBanco {
                     }
                     break;
                 case 5: // consultar cuenta
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -248,7 +249,7 @@ public class EjercicioBanco {
                     System.out.println(miBanco.consultarCuenta(codigo));
                     break;
                 case 6: // informe general
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -259,7 +260,7 @@ public class EjercicioBanco {
                     System.out.println(miBanco.informeCuentas());
                     break;
                 case 7: // borrar cuenta
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -274,7 +275,7 @@ public class EjercicioBanco {
                     miBanco.eliminarCuenta(codigo);
                     break;              
                 case 8:
-                    if (miBanco == null) {
+                    if (existsBanco(miBanco)) {
                         System.out.println("BANCO NO CREADO");
                         break;
                     }
@@ -295,6 +296,10 @@ public class EjercicioBanco {
                     }
             }
         } while (opcion != 10);
+	}
+
+	private static boolean existsBanco(Banco miBanco) {
+		return miBanco == null;
 	}
 
 }
