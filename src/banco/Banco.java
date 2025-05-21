@@ -110,10 +110,6 @@ public class Banco implements Serializable {
         }
     }
 
-    public boolean existeCuenta(String codigo) {
-        return (localizarCuenta(codigo) != null);
-    }
-
     public String consultarCuenta(String codigo) {
         Cuenta c = localizarCuenta(codigo);
         if (c != null) {
@@ -132,7 +128,7 @@ public class Banco implements Serializable {
         }
     }
 
-    private Cuenta localizarCuenta(String codigo) {
+    public Cuenta localizarCuenta(String codigo) {
         // se busca secuencialmente la cuenta con un código       
          {for (int i=0;i<this.numeroCuentas;i++){
             if (cuentas[i].iban.equals(codigo)) 

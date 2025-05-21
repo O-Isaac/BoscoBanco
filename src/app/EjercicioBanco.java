@@ -42,7 +42,7 @@ public class EjercicioBanco {
                     System.out.println(e.getMessage());
                 }
             }
-        } while (!banco.existeCuenta(codigoCuenta)
+        } while (!(banco.localizarCuenta(codigoCuenta) != null)
                 && // con x o X puede salir 
                 (!"x".equals(codigoCuenta) && !"X".equals(codigoCuenta)));
         return codigoCuenta;
@@ -121,7 +121,7 @@ public class EjercicioBanco {
                     do {
                         System.out.println("Introduce código de cuenta:");
                         codigo = teclado.nextLine();
-                        if (miBanco.existeCuenta(codigo)) {
+                        if ((miBanco.localizarCuenta(codigo) != null)) {
                             System.out.println("Ya existe una cuenta con ese código.");
                             datoCorrecto = false;
                         } else {
@@ -159,7 +159,7 @@ public class EjercicioBanco {
                     }
 
                     codigo = leerCodigoCuenta(miBanco);
-                    if (!miBanco.existeCuenta(codigo)) {
+                    if (!(miBanco.localizarCuenta(codigo) != null)) {
                         break;
                     }
                     double cantidad = 0;
@@ -197,7 +197,7 @@ public class EjercicioBanco {
                         break;
                     }
                     codigo = leerCodigoCuenta(miBanco);
-                    if (!miBanco.existeCuenta(codigo)) {
+                    if (!(miBanco.localizarCuenta(codigo) != null)) {
                         break;
                     }
                     cantidad = 0;
@@ -242,7 +242,7 @@ public class EjercicioBanco {
                         break;
                     }
                     codigo = leerCodigoCuenta(miBanco);
-                    if (!miBanco.existeCuenta(codigo)) {
+                    if (!(miBanco.localizarCuenta(codigo) != null)) {
                         break;
                     }
                     System.out.println(miBanco.consultarCuenta(codigo));
@@ -268,7 +268,7 @@ public class EjercicioBanco {
                         break;
                     }
                     codigo = leerCodigoCuenta(miBanco);
-                    if (!miBanco.existeCuenta(codigo)) {
+                    if (!(miBanco.localizarCuenta(codigo) != null)) {
                         break;
                     }
                     miBanco.eliminarCuenta(codigo);
