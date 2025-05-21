@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import banco.*;
-import util.Utilidades;
 
 public class EjercicioBanco {
     static Scanner teclado = new Scanner(System.in);
